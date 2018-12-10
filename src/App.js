@@ -20,12 +20,18 @@ class App extends Component {
     };
   }
 
-
+  onSelectPet = (petId) => {
+    const pet = this.state.petList.find( (pet) => { return pet.id === petId });
+    // const pet = this.state.petList.find( (pet) => pet.id === petId);
+    this.setState({
+      currentPet: pet,
+    })
+  }
 
 
   render() {
     const { currentPet } = this.state;
-    
+
     return (
       <main className="App">
         <header className="app-header">
@@ -36,8 +42,14 @@ class App extends Component {
           <SearchBar />
         </section>
           { /* Wave 2:  Where Pet Details should appear */ }
+          {this.state.currentPet ? <PetDetails currentPet={currentPet}/> : "" }
+
         <section className="pet-list-wrapper">
           { /* Wave 1:  Where PetList should appear */ }
+          <PetList
+            pets={this.state.petList}
+            onSelectPetCallback={this.onSelectPet}
+          />
         </section>
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */ }
