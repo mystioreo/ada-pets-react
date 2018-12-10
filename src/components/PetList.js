@@ -14,6 +14,7 @@ const getCards = (props) => {
       about={pet.about}
       location={pet.about}
       onSelectPetCallback={props.onSelectPetCallback}
+      onRemovePetCallback={props.onRemovePetCallback}
       />
   })
 }
@@ -31,6 +32,7 @@ const PetList = (props) => {
 PetList.propTypes = {
   pets: PropTypes.array.isRequired,
   onSelectPetCallback: PropTypes.func,
+  onRemovePetCallback: PropTypes.func,
 };
 
 export default PetList;

@@ -28,6 +28,17 @@ class App extends Component {
     })
   }
 
+  onRemovePet = (petId) => {
+    let newPetList = this.state.petList;
+    
+    const pet = newPetList.find( (pet) => pet.id === petId);
+    newPetList.splice(newPetList.indexOf(pet), 1);
+
+    this.setState({
+      petList: newPetList,
+    })
+  }
+
 
   render() {
     const { currentPet } = this.state;
@@ -49,6 +60,7 @@ class App extends Component {
           <PetList
             pets={this.state.petList}
             onSelectPetCallback={this.onSelectPet}
+            onRemovePetCallback={this.onRemovePet}
           />
         </section>
         <section className="new-pet-form-wrapper">
