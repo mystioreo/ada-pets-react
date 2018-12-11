@@ -60,18 +60,13 @@ class App extends Component {
 
     let petList = this.state.petList;
 
+    const regEx = new RegExp(searchTerm, "i");
 
-
-    const re = new RegExp(searchTerm, "i");
-
-    petList = petList.filter(pet => pet.name.match(re));
-
+    petList = petList.filter(pet => pet.name.match(regEx) || pet.about.match(regEx) || pet.species.match(regEx));
 
     this.setState({
       petList,
     })
-
-//use .match to filter the petList
 
   }
 
