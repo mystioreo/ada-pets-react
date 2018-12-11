@@ -57,7 +57,20 @@ class App extends Component {
   }
 
   onSearch = (searchTerm) => {
-console.log(searchTerm);
+
+    let petList = this.state.petList;
+
+
+
+    const re = new RegExp(searchTerm, "i");
+
+    petList = petList.filter(pet => pet.name.match(re));
+
+
+    this.setState({
+      petList,
+    })
+
 //use .match to filter the petList
 
   }
