@@ -53,7 +53,6 @@ class NewPetForm extends Component {
       this.props.addPetCallback(this.state);
 
       this.setState({
-        id: "",
         name: "",
         species: "",
         about: "",
@@ -62,7 +61,7 @@ class NewPetForm extends Component {
     } else {
       console.log("missing fields");
     }
-    
+
 
   }
   render() {
@@ -70,9 +69,6 @@ class NewPetForm extends Component {
       <form  className="new-pet-form" onSubmit={this.onSubmitHandler}>
         <h3>Add a Pet</h3>
         { /* A form should go here! */ }
-
-        <label htmlFor="id">ID Number</label>
-        <input name="id" id="id" value={this.state.id} onChange={this.onIDChangeHandler} />
 
         <label htmlFor="name">Name</label>
         <input name="name" id="name" value={this.state.name} onChange={this.onNameChangeHandler} />

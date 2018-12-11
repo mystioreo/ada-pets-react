@@ -40,10 +40,16 @@ class App extends Component {
   }
 
   addPet = (newPet) => {
+    
     let newPetList = this.state.petList;
+
+    const lastIndex = newPetList[newPetList.length - 1].id;
+
+    newPet.id = lastIndex + 1;
+
     newPetList.push(newPet);
 
-    console.log("add pet callback");
+
     this.setState({
       petList: newPetList,
     })
