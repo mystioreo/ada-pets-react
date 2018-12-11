@@ -57,7 +57,7 @@ class App extends Component {
   }
 
   onSearch = (searchTerm) => {
-
+console.log(searchTerm);
 //use .match to filter the petList
 
   }
