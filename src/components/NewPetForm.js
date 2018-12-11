@@ -13,7 +13,7 @@ class NewPetForm extends Component {
       name: "",
       species: "",
       about: "",
-      images: [],
+      images: [""],
     };
   }
 
@@ -48,16 +48,21 @@ class NewPetForm extends Component {
 
   onSubmitHandler = (event) => {
     event.preventDefault();
-    
-    this.props.addPetCallback(this.state);
 
-    this.setState({
-      id: "",
-      name: "",
-      species: "",
-      about: "",
-      images: [],
-    });
+    if (this.state.name && this.state.images[0] && this.state.species) {
+      this.props.addPetCallback(this.state);
+
+      this.setState({
+        id: "",
+        name: "",
+        species: "",
+        about: "",
+        images: [""],
+      });
+    } else {
+      console.log("missing fields");
+    }
+    
 
   }
   render() {
