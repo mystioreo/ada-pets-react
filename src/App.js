@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   addPet = (newPet) => {
-    
+
     let newPetList = this.state.petList;
 
     const lastIndex = newPetList[newPetList.length - 1].id;
@@ -56,6 +56,12 @@ class App extends Component {
 
   }
 
+  onSearch = (searchTerm) => {
+
+//use .match to filter the petList
+
+  }
+
   render() {
     const { currentPet } = this.state;
 
@@ -66,7 +72,7 @@ class App extends Component {
         </header>
         <section className="search-bar-wrapper">
           { /* Wave 4:  Place to add the SearchBar component */ }
-          <SearchBar />
+          <SearchBar onSearchCallback={this.onSearch}/>
         </section>
           { /* Wave 2:  Where Pet Details should appear */ }
           {this.state.currentPet ? <PetDetails currentPet={currentPet}/> : "" }
