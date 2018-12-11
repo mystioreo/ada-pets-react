@@ -30,7 +30,7 @@ class App extends Component {
 
   onRemovePet = (petId) => {
     let newPetList = this.state.petList;
-    
+
     const pet = newPetList.find( (pet) => pet.id === petId);
     newPetList.splice(newPetList.indexOf(pet), 1);
 
@@ -39,6 +39,16 @@ class App extends Component {
     })
   }
 
+  addPet = (newPet) => {
+    let newPetList = this.state.petList;
+    newPetList.push(newPet);
+
+    console.log("add pet callback");
+    this.setState({
+      petList: newPetList,
+    })
+
+  }
 
   render() {
     const { currentPet } = this.state;
@@ -65,6 +75,7 @@ class App extends Component {
         </section>
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */ }
+          <NewPetForm addPetCallback={this.addPet} />
         </section>
       </main>
     );
