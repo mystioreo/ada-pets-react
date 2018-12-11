@@ -17,11 +17,6 @@ class NewPetForm extends Component {
     };
   }
 
-  onIDChangeHandler = (event) => {
-    this.setState({
-      id: event.target.value,
-    })
-  }
   onNameChangeHandler = (event) => {
     this.setState({
       name: event.target.value,
@@ -53,6 +48,7 @@ class NewPetForm extends Component {
       this.props.addPetCallback(this.state);
 
       this.setState({
+        id: "",
         name: "",
         species: "",
         about: "",
